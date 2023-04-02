@@ -1,36 +1,69 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Display} from "./components/Display/Display";
-import {Button} from "./components/Button/Button";
+import {Counter} from "./components/Counter/Counter";
+import {Settings} from "./components/Settings/Settings";
+
+export type StateType = {
+    inc: number
+    min: number
+    max: number
+}
 
 function App() {
 
-    const [inc, setInk] = useState<number>(0)
+
+    const [inc, setInk] = useState<StateType>({inc: 0, min: 0, max: 5})
+    const [message, setMessage] = useState('press "set"')
+
+
+
+    useEffect(()=>{
+        let newMin = localStorage.getItem('min')
+        let newMax = localStorage.getItem('max')
+        let newInc = localStorage.getItem('inc')
+        if (newMin && newMax && newInc){
+            debugger
+            let newMinNum = JSON.parse(newMin)
+            let newMaxNum = JSON.parse(newMax)
+            let newIncNum = JSON.parse(newInc)
+            setInk({...inc,inc: newIncNum, min: newMinNum, max: newMaxNum})
+        } else{
+            localStorage.setItem('min', JSON.stringify(0))
+            localStorage.setItem('max', JSON.stringify(5))
+        }
+    }, [])
+
+    useEffect(()=>{
+        localStorage.setItem('min', JSON.stringify(inc.min))
+        localStorage.setItem('max', JSON.stringify(inc.max))
+        localStorage.setItem('inc', JSON.stringify(inc.inc))
+    },[inc])
 
     const incAdd = () =>{
-        setInk(inc+1)
+        setInk({...inc, inc:inc.inc+1})
     }
 
     const incReset = () =>{
-        setInk(0)
+        setInk({...inc, inc:inc.min})
+    }
+
+    const setMinMaxInc = (min: number, max: number) =>{
+        setInk({...inc, inc:min, min:min, max:max})
     }
 
     return (
         <div className="App">
-            <div className='appWrapper'>
-                <Display value={inc}/>
-                <div className='appButtonBox'>
-                    <Button
-                        name='inc'
-                        callback={incAdd}
-                        disabled={inc >= 5}/>
-                    <Button
-                        name='reset'
-                        callback={incReset}
-                        disabled={inc === 0}/>
-                </div>
-            </div>
+            <Settings
+                inc={inc}
+                setMinMaxInc={setMinMaxInc}
+                setMessage={setMessage}
+            />
+            <Counter
+                inc={inc}
+                incAdd={incAdd}
+                incReset={incReset}
+                message={message}
+            />
         </div>
     );
 }
