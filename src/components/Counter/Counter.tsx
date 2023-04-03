@@ -26,11 +26,11 @@ export const Counter:React.FC<PropsType> = (
                 <Button
                     name='inc'
                     callback={incAdd}
-                    disabled={inc.inc >= inc.max}/>
+                    disabled={message!=''||inc.inc >= inc.max}/>
                 <Button
                     name='reset'
                     callback={incReset}
-                    disabled={inc.inc === 0}/>
+                    disabled={message!=''||inc.inc === inc.min}/>
             </div>
         </div>
     );

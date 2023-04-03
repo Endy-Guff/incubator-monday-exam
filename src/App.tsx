@@ -21,12 +21,14 @@ function App() {
         let newMin = localStorage.getItem('min')
         let newMax = localStorage.getItem('max')
         let newInc = localStorage.getItem('inc')
+        let message = localStorage.getItem('message')
         if (newMin && newMax && newInc){
-            debugger
             let newMinNum = JSON.parse(newMin)
             let newMaxNum = JSON.parse(newMax)
             let newIncNum = JSON.parse(newInc)
+            let parseMessage = JSON.parse(newInc)
             setInk({...inc,inc: newIncNum, min: newMinNum, max: newMaxNum})
+            setMessage(parseMessage)
         } else{
             localStorage.setItem('min', JSON.stringify(0))
             localStorage.setItem('max', JSON.stringify(5))
@@ -37,6 +39,7 @@ function App() {
         localStorage.setItem('min', JSON.stringify(inc.min))
         localStorage.setItem('max', JSON.stringify(inc.max))
         localStorage.setItem('inc', JSON.stringify(inc.inc))
+        localStorage.setItem('message', JSON.stringify(message))
     },[inc])
 
     const incAdd = () =>{
@@ -57,6 +60,7 @@ function App() {
                 inc={inc}
                 setMinMaxInc={setMinMaxInc}
                 setMessage={setMessage}
+                message={message}
             />
             <Counter
                 inc={inc}

@@ -6,6 +6,20 @@
     color: #fff;
     font-size: 20px;
     background: #131010;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.btn:active{
+    transform: scale(0.8);
+}
+
+.btn:disabled{
+    transform: scale(1);
 }
 
 .btn:disabled{
