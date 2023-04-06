@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Counter.module.css'
 import {Display} from "./Display/Display";
 import {Button} from "../Button/Button";
-import {StateType} from "../../App";
+import {IncStateType} from "../../App";
 
 type PropsType ={
-    inc: StateType
+    inc: IncStateType
     incAdd: () => void
     incReset: () => void
     message: string

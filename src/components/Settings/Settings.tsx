@@ -1,11 +1,11 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from './Settings.module.css'
 import {Button} from "../Button/Button";
-import {StateType} from "../../App";
+import {IncStateType} from "../../App";
 import {Input} from "../Input/Input";
 
 type PropsType = {
-    inc: StateType,
+    inc: IncStateType,
     setMinMaxInc: (min: number, max: number) =>void
     setMessage:(message:string)=>void
     message: string

@@ -5,10 +5,11 @@
 }
 
 .App{
+  min-height: 2vh;
+  padding: 50px 0;
   background: #1a1a1a;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
