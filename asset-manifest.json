@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/incubator-monday-exam/static/css/main.b8e79ed3.css",
+    "main.js": "/incubator-monday-exam/static/js/main.2568db13.js",
+    "static/js/787.28cb0dcd.chunk.js": "/incubator-monday-exam/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/incubator-monday-exam/index.html",
+    "main.b8e79ed3.css.map": "/incubator-monday-exam/static/css/main.b8e79ed3.css.map",
+    "main.2568db13.js.map": "/incubator-monday-exam/static/js/main.2568db13.js.map",
+    "787.28cb0dcd.chunk.js.map": "/incubator-monday-exam/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8e79ed3.css",
+    "static/js/main.2568db13.js"
+  ]
+}
